@@ -53,10 +53,16 @@ function showCountries(){
             countries.forEach(country => {
                 let countryDiv = document.createElement('div');
                 countryDiv.classList.add('country')
+
                 let nameH1 = document.createElement('h1');
                 let nameNode = document.createTextNode(country.name.official);
                 nameH1.append(nameNode);
-                countryDiv.append(nameH1)
+
+                let flagImg = document.createElement('img');
+                flagImg.setAttribute('src', country.flags.png);
+                flagImg.setAttribute('alt', `${country.name.official} flag`);
+
+                countryDiv.append(flagImg, nameH1)
                 countriesDiv.append(countryDiv);
             });
         } else {
