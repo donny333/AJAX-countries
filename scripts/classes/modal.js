@@ -1,4 +1,4 @@
-import NewHtmlElement from "../helpers/htmlElement.js";
+import Element from "../helpers/htmlElement";
 
 export default class Modal{
     constructor({country}){

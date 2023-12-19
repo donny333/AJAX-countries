@@ -1,4 +1,4 @@
-export default class HtmlElement {
+export default class Element {
     constructor(tagName, textNode = ''){
         this.tagName = tagName;
         this.textNode = textNode;
