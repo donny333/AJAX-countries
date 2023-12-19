@@ -23,17 +23,26 @@ export default class CountryCard {
 
         this.countryDiv.append(this.nameH1, this.flagImg)
         this.loadDirectory.append(this.countryDiv);
-    }
+    };
     runModal(){
         this.flagImg.addEventListener('click', ()=>{
-            this.overlayDiv = new Element('div');
-            this.overlayDiv.classList.add('overlay');
+        this.overlayDiv = new Element('div');
+        this.overlayDiv.classList.add('overlay');
 
-            this.modal = new Modal({country: this.country});
+        this.modal = new Modal({country: this.country});
 
-            this.body = document.querySelector('body');
-            this.body.append(this.overlayDiv, this.modal);
-            this.body.classList.add('overflowHid');
+        this.body = document.querySelector('body');
+        this.body.append(this.overlayDiv, this.modal);
+        this.body.classList.add('overflowHid');
+
+        this.shutDownModal();
         })
-    }
-}
+    };
+    shutDownModal(){
+        this.overlayDiv.addEventListener('click', ()=>{
+            this.overlayDiv.remove();
+            this.modal.remove();
+            this.body.classList.remove('overflowHid');
+        })
+    };
+};
