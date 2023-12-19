@@ -38,6 +38,7 @@ AJAX is a web developement techique.
 xhr - XMLHTTPRequest
 
 */
+import CountryCard from "./Classes/countryCard.js";
 
 const countriesDiv = document.querySelector('#shownCountries')
 
@@ -51,19 +52,12 @@ function showCountries(){
             let countries = JSON.parse(this.response)
             console.log(countries)
             countries.forEach(country => {
-                let countryDiv = document.createElement('div');
-                countryDiv.classList.add('country')
-
-                let nameH1 = document.createElement('h1');
-                let nameNode = document.createTextNode(country.name.official);
-                nameH1.append(nameNode);
-
-                let flagImg = document.createElement('img');
-                flagImg.setAttribute('src', country.flags.png);
-                flagImg.setAttribute('alt', `${country.name.official} flag`);
-
-                countryDiv.append(flagImg, nameH1)
-                countriesDiv.append(countryDiv);
+                if (country.continents[0] === 'Europe'){
+                    const cardCountry = new CountryCard({
+                        country: country,
+                        loadDirectory: countriesDiv
+                    });
+                }
             });
         } else {
             console.log('Your request status is: ' + xhr.status)
