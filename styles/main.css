@@ -58,4 +58,36 @@ body {
 #shownCountries > div > img:hover {
   cursor: pointer;
   scale: 1.02;
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2;
+}
+#modal > h1 {
+  margin-top: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+body {
+  overflow: hidden;
 }/*# sourceMappingURL=main.css.map */
