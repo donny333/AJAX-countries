@@ -39,16 +39,28 @@ xhr - XMLHTTPRequest
 
 */
 
+const countriesDiv = document.querySelector('#shownCountries')
+
 function showCountries(){
     let xhr = new XMLHttpRequest;
 
     xhr.open('GET', 'https://restcountries.com/v3.1/all', true);
 
     xhr.onload = function(){
-        if (xhr.status) {
-            console.log('Success')
+        if (xhr.status === 200) {
+            let countries = JSON.parse(this.response)
+            console.log(countries)
+            countries.forEach(country => {
+                let countryDiv = document.createElement('div');
+                countryDiv.classList.add('country')
+                let nameH1 = document.createElement('h1');
+                let nameNode = document.createTextNode(country.name.official);
+                nameH1.append(nameNode);
+                countryDiv.append(nameH1)
+                countriesDiv.append(countryDiv);
+            });
         } else {
-            console.log('Fail')
+            console.log('Your request status is: ' + xhr.status)
         }
     }
 
