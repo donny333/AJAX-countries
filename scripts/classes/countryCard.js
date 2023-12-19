@@ -1,3 +1,5 @@
+import HtmlElement from "../helpers/htmlElement.js";
+
 export default class CountryCard {
     constructor({country, loadDirectory}){
         this.country = country;
@@ -24,8 +26,9 @@ export default class CountryCard {
         this.loadDirectory.append(this.countryDiv);
     }
     runModal(){
-        this.flagImg.addEventListener('click', ()=>{
-            console.log(`${this.country.name.official} flag clicked`)
-        })
+        this.testDiv = new HtmlElement('h1', this.country.name.official);
+        console.log(this.testDiv)
+        
+        document.querySelector('#appendArea').append(this.testDiv)
     }
 }

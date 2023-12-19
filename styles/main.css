@@ -86,8 +86,4 @@ body {
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
   z-index: 1;
-}
-
-body {
-  overflow: hidden;
 }/*# sourceMappingURL=main.css.map */
