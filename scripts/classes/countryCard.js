@@ -1,4 +1,5 @@
 import Element from "../helpers/htmlElement.js";
+import Modal from "./mod.js";
 
 export default class CountryCard {
     constructor({country, loadDirectory}){
@@ -25,11 +26,14 @@ export default class CountryCard {
     }
     runModal(){
         this.flagImg.addEventListener('click', ()=>{
+            this.overlayDiv = new Element('div');
+            this.overlayDiv.classList.add('overlay');
 
-            this.testDiv = new Element('h1', this.country.name.official);
-            console.log(this.testDiv)
-            
-            document.querySelector('#appendArea').append(this.testDiv)
+            this.modal = new Modal({country: this.country});
+
+            this.body = document.querySelector('body');
+            this.body.append(this.overlayDiv, this.modal);
+            this.body.classList.add('overflowHid');
         })
     }
 }

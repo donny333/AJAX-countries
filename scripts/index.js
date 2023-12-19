@@ -1,4 +1,4 @@
-import CountryCard from "./Classes/countryCard.js";
+import CountryCard from "./classes/countryCard.js";
 
 const countriesDirectory = document.querySelector('#shownCountries')
 
