@@ -10,7 +10,6 @@ function showCountries(){
     xhr.onload = function(){
         if (xhr.status === 200) {
             let countries = JSON.parse(this.response)
-            console.log(countries)
             countries.forEach(country => {
                 const cardCountry = new CountryCard({
                     country: country,
