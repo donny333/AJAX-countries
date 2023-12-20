@@ -131,6 +131,6 @@ body {
     width: calc(20% - 8px);
   }
   #modal {
-    max-width: 600px;
+    width: 600px;
   }
 }/*# sourceMappingURL=main.css.map */
